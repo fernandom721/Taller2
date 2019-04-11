@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // TODO (10) Click Listener para el boton flotante
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Has clickeado en un sobre xd", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // TODO (20) Para saber si estamos en modo dos paneles
         if (fragment_content != null ){
             twoPane =  true
+            println("Le diste vuelta a la pantalla xd")
         }
 
 
@@ -99,22 +100,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             // TODO (14.3) Los Id solo los que estan escritos en el archivo de MENU
             R.id.nav_camera -> {
-
+                println("Camera")
             }
             R.id.nav_gallery -> {
-
+                println("Galería")
             }
             R.id.nav_slideshow -> {
-
+                println("slide")
             }
             R.id.nav_manage -> {
-
+                println("manejar")
             }
             R.id.nav_share -> {
-
+                println("compartir")
             }
             R.id.nav_send -> {
-
+                println("enviar")
             }
         }
 
