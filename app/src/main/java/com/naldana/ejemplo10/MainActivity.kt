@@ -1,20 +1,26 @@
 package com.naldana.ejemplo10
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import android.support.v7.widget.RecyclerView
+import android.view.*
+import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.grid_coins_layout.view.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var twoPane =  false
+
+    var adapter: CoinAdapter? = null
+    var coinList = ArrayList<Coin>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +31,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // TODO (10) Click Listener para el boton flotante
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Has clickeado en un sobre xd", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Banco de los Trabajadores Salvadoreños S.A. de C.V. ©", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
@@ -62,6 +68,51 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
          * TODO (Instrucciones)Luego de leer todos los comentarios añada la implementación de RecyclerViewAdapter
          * Y la obtencion de datos para el API de Monedas
          */
+
+        // load foods
+        coinList.add(Coin("Coffee", R.drawable.ic_menu_manage))
+        coinList.add(Coin("Espersso", R.drawable.ic_menu_manage))
+        coinList.add(Coin("French Fires", R.drawable.ic_menu_manage))
+        coinList.add(Coin("Honey",R.drawable.ic_menu_manage))
+        coinList.add(Coin("Strawberry", R.drawable.ic_menu_manage))
+        coinList.add(Coin("Sugar cubes", R.drawable.ic_menu_manage))
+        adapter = CoinAdapter(this, coinList)
+
+        recyclerview.adapter = adapter
+    }
+
+    class CoinAdapter : BaseAdapter {
+            var coinsList = ArrayList<Coin>()
+        var context: Context? = null
+
+        constructor(context: Context, coinList: ArrayList<Coin>) : super() {
+            this.context = context
+            this.coinsList = coinsList
+        }
+
+        override fun getCount(): Int {
+            return coinsList.size
+        }
+
+        override fun getItem(position: Int): Any {
+            return coinsList[position]
+        }
+
+        override fun getItemId(position: Int): Long {
+            return position.toLong()
+        }
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+            val coin = this.coinsList[position]
+
+            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            var coinView = inflator.inflate(R.layout.grid_coins_layout, null)
+            coinView.image.setImageResource(coin.image!!)
+            coinView.name.text = coin.country!!
+
+            return coinView
+        }
+
     }
 
 

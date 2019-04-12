@@ -23,6 +23,6 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"></FrameLayout>
+        android:background="@color/colorPrimaryDark"></FrameLayout>
 
 </LinearLayout>
