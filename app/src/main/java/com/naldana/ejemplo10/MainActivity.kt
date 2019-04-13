@@ -24,13 +24,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        this.setContentView(R.layout.activity_main)
         // TODO (9) Se asigna a la actividad la barra personalizada
-        setSupportActionBar(toolbar)
+        this.setSupportActionBar(this.toolbar)
 
 
         // TODO (10) Click Listener para el boton flotante
-        fab.setOnClickListener { view ->
+        this.fab.setOnClickListener { view ->
             Snackbar.make(view, "Banco de los Trabajadores Salvadoreños S.A. de C.V. ©", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // TODO (11.4) Una String que describe el estado de apertura
         // TODO (11.5) Una String que describe el estado cierre
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, this.drawer_layout, this.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
 
         // TODO (12) Con el Listener Creado se asigna al  DrawerLayout
-        drawer_layout.addDrawerListener(toggle)
+        this.drawer_layout.addDrawerListener(toggle)
 
 
         // TODO(13) Se sincroniza el estado del menu con el LISTENER
@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // TODO (14) Se configura el listener del menu que aparece en la barra lateral
         // TODO (14.1) Es necesario implementar la inteface {{@NavigationView.OnNavigationItemSelectedListener}}
-        nav_view.setNavigationItemSelectedListener(this)
+        this.nav_view.setNavigationItemSelectedListener(this)
 
         // TODO (20) Para saber si estamos en modo dos paneles
-        if (fragment_content != null ){
-            twoPane =  true
+        if (this.fragment_content != null ){
+            this.twoPane =  true
             println("Le diste vuelta a la pantalla xd")
         }
 
@@ -70,15 +70,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
          */
 
         // load foods
-        coinList.add(Coin("Coffee", R.drawable.ic_menu_manage))
-        coinList.add(Coin("Espersso", R.drawable.ic_menu_manage))
-        coinList.add(Coin("French Fires", R.drawable.ic_menu_manage))
-        coinList.add(Coin("Honey",R.drawable.ic_menu_manage))
-        coinList.add(Coin("Strawberry", R.drawable.ic_menu_manage))
-        coinList.add(Coin("Sugar cubes", R.drawable.ic_menu_manage))
-        adapter = CoinAdapter(this, coinList)
+        this.coinList.add(Coin("Coffee", R.drawable.ic_menu_manage))
+        this.coinList.add(Coin("Espersso", R.drawable.ic_menu_manage))
+        this.coinList.add(Coin("French Fires", R.drawable.ic_menu_manage))
+        this.coinList.add(Coin("Honey",R.drawable.ic_menu_manage))
+        this.coinList.add(Coin("Strawberry", R.drawable.ic_menu_manage))
+        this.coinList.add(Coin("Sugar cubes", R.drawable.ic_menu_manage))
+        this.adapter = CoinAdapter(this, this.coinList)
 
-        recyclerview.adapter = adapter
+
     }
 
     class CoinAdapter : BaseAdapter {
@@ -87,15 +87,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         constructor(context: Context, coinList: ArrayList<Coin>) : super() {
             this.context = context
-            this.coinsList = coinsList
+            this.coinsList = this.coinsList
         }
 
         override fun getCount(): Int {
-            return coinsList.size
+            return this.coinsList.size
         }
 
         override fun getItem(position: Int): Any {
-            return coinsList[position]
+            return this.coinsList[position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val coin = this.coinsList[position]
 
-            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            var inflator = this.context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var coinView = inflator.inflate(R.layout.grid_coins_layout, null)
             coinView.image.setImageResource(coin.image!!)
             coinView.name.text = coin.country!!
@@ -120,8 +120,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // TODO (16.1) Cuando se presione el boton back y el menu este abierto cerralo
     // TODO (16.2) De lo contrario hacer la accion predeterminada
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
+        if (this.drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            this.drawer_layout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // TODO (17) LLena el menu que esta en la barra. El de tres puntos a la derecha
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
+        this.menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         // TODO (15) Cuando se da click a un opcion del menu se cierra de manera automatica
-        drawer_layout.closeDrawer(GravityCompat.START)
+        this.drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 }
