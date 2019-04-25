@@ -1,6 +1,7 @@
 package com.naldana.ejemplo10
 
 import android.content.Context
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -12,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.BaseAdapter
+import com.naldana.ejemplo10.utilities.NetworkUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -19,12 +21,15 @@ import kotlinx.android.synthetic.main.grid_coins_layout.view.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.URL
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var twoPane =  false
 
     private lateinit var viewAdapter : CoinAdapter
+    private lateinit var viewManager : LinearLayoutManager
+    private var listaMonedas : ArrayList<Coin> = ArrayList<Coin>()
     //private var coinList = ArrayList<Coin>()
 
 
@@ -70,22 +75,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             this.twoPane =  true
             println("Le diste vuelta a la pantalla xd")
         }
-
-
-        /*
-         * TODO (Instrucciones)Luego de leer todos los comentarios añada la implementación de RecyclerViewAdapter
-         * Y la obtencion de datos para el API de Monedas
-         */
-
-        initRecycler()
-
-        // load foods
-
     }
 
 
-    fun initRecycler(coins : ArrayList<infoCoins>) {
-
+    fun initRecycler(coins : ArrayList<Coin>) {
         //viewManager = LinearLayoutManager(this)
         if(this.resources.configuration.orientation == 2
             || this.resources.configuration.orientation == 4){
@@ -93,8 +86,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else{
             viewManager = GridLayoutManager(this, 2)
         }
-
-        viewAdapter = coinAdapter(coins, { coinItem: infoCoins -> coinItemClicked(coinItem) })
+        viewAdapter = CoinAdapter(coins, { item: Coin -> itemClick(item) })
 
         recyclerview.apply {
             setHasFixedSize(true)
@@ -103,39 +95,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
     }
-    class CoinAdapter : BaseAdapter {
-            var coinsList = ArrayList<Coin>()
-        var context: Context? = null
 
-        constructor(context: Context, coinList: ArrayList<Coin>) : super() {
-            this.context = context
-            this.coinsList = this.coinsList
-        }
-
-        override fun getCount(): Int {
-            return this.coinsList.size
-        }
-
-        override fun getItem(position: Int): Any {
-            return this.coinsList[position]
-        }
-
-        override fun getItemId(position: Int): Long {
-            return position.toLong()
-        }
-
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val coin = this.coinsList[position]
-
-            var inflator = this.context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            var coinView = inflator.inflate(R.layout.grid_coins_layout, null)
-            coinView.image.setImageResource(coin.image!!)
-            coinView.name.text = coin.country!!
-
-            return coinView
+    private inner class FetchCoincs(): AsyncTask<String,Void,String>(){
+        override fun doInBackground(vararg params: String?): String {
+            var url = NetworkUtils().buildUrl()
         }
 
     }
+
+
+    private fun itemClick(item: Coin) {
+
+    }
+
+
 
 
     // TODO (16) Para poder tener un comportamiento Predecible
