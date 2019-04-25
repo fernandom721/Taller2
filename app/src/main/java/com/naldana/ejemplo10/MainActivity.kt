@@ -25,19 +25,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var viewAdapter : CoinAdapter
     //private var coinList = ArrayList<Coin>()
 
-    private val BASE_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5a15fd67"
-
-
-    //CONEXION DE API--------------------
-    private fun loadData(){
-        val requestInterface = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build().create(GetData::class.java)
-
-        viewAdapter?.add(requestInterface.getData())
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
