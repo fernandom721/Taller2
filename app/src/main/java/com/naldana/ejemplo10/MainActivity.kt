@@ -14,13 +14,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.grid_coins_layout.view.*
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var twoPane =  false
 
-    var adapter: CoinAdapter? = null
-    var coinList = ArrayList<Coin>()
+    private var adapter: CoinAdapter? = null
+    private var coinList = ArrayList<Coin>()
+
+    private val BASE_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5a15fd67"
+
+
+    //CONEXION DE API--------------------
+    private fun loadData(){
+        val requestInterface = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build().create(GetData::class.java)
+
+        adapter?.add(requestInterface.getData())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +51,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Snackbar.make(view, "Banco de los Trabajadores Salvadoreños S.A. de C.V. ©", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+
 
 
         // TODO (11) Permite administrar el DrawerLayout y el ActionBar
