@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-dialog:28.0.0-alpha1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-dialog-28.0.0-alpha1.aar/ca0392baf645639800e36197e4145288/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-dialog-28.0.0-alpha1.aar/ca0392baf645639800e36197e4145288/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-dialog-28.0.0-alpha1.aar/e7ccdfd75fc38949cc9c653f7dbd0813/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-dialog-28.0.0-alpha1.aar/e7ccdfd75fc38949cc9c653f7dbd0813/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

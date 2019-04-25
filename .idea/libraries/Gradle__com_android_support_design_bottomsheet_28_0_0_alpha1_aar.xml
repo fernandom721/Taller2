@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-bottomsheet:28.0.0-alpha1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-bottomsheet-28.0.0-alpha1.aar/2957711c9ba2f49941caacafd0850975/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-bottomsheet-28.0.0-alpha1.aar/2957711c9ba2f49941caacafd0850975/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-bottomsheet-28.0.0-alpha1.aar/544d3037486625133b5c9c672b9af2b7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-bottomsheet-28.0.0-alpha1.aar/544d3037486625133b5c9c672b9af2b7/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

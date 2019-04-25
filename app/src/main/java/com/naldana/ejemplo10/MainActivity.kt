@@ -7,6 +7,8 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.BaseAdapter
@@ -82,18 +84,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-    fun initRecycler(coins : ArrayList<Coin>) {
-        viewAdapter = CoinAdapter(coins, {
-                item : Coin->coinClicked(item)
-        })
+    fun initRecycler(coins : ArrayList<infoCoins>) {
+
+        //viewManager = LinearLayoutManager(this)
+        if(this.resources.configuration.orientation == 2
+            || this.resources.configuration.orientation == 4){
+            viewManager = LinearLayoutManager(this)
+        } else{
+            viewManager = GridLayoutManager(this, 2)
+        }
+
+        viewAdapter = coinAdapter(coins, { coinItem: infoCoins -> coinItemClicked(coinItem) })
 
         recyclerview.apply {
             setHasFixedSize(true)
+            layoutManager = viewManager
             adapter = viewAdapter
-
         }
-    }
 
+    }
     class CoinAdapter : BaseAdapter {
             var coinsList = ArrayList<Coin>()
         var context: Context? = null

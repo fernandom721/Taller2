@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-chip:28.0.0-alpha1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/478d1b24facd56f015d41a2962cfb519/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/bd3f8b5c61edbcb3f8b52b4c6c08a575/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/478d1b24facd56f015d41a2962cfb519/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/478d1b24facd56f015d41a2962cfb519/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/bd3f8b5c61edbcb3f8b52b4c6c08a575/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-chip-28.0.0-alpha1.aar/bd3f8b5c61edbcb3f8b52b4c6c08a575/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
