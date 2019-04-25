@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build().create(GetData::class.java)
 
-        adapter?.add(requestInterface.getData())
+        viewAdapter?.add(requestInterface.getData())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
