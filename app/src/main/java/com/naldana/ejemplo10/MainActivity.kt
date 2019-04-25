@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var twoPane =  false
 
-    private var adapter: CoinAdapter? = null
-    private var coinList = ArrayList<Coin>()
+    private lateinit var viewAdapter : CoinAdapter
+    //private var coinList = ArrayList<Coin>()
 
     private val BASE_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5a15fd67"
 
@@ -88,16 +88,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
          * Y la obtencion de datos para el API de Monedas
          */
 
+        initRecycler()
+
         // load foods
-        this.coinList.add(Coin("Coffee", R.drawable.ic_menu_manage))
-        this.coinList.add(Coin("Espersso", R.drawable.ic_menu_manage))
-        this.coinList.add(Coin("French Fires", R.drawable.ic_menu_manage))
-        this.coinList.add(Coin("Honey",R.drawable.ic_menu_manage))
-        this.coinList.add(Coin("Strawberry", R.drawable.ic_menu_manage))
-        this.coinList.add(Coin("Sugar cubes", R.drawable.ic_menu_manage))
-        this.adapter = CoinAdapter(this, this.coinList)
+
+    }
 
 
+    fun initRecycler(coins : ArrayList<Coin>) {
+        viewAdapter = CoinAdapter(coins, {
+                item : Coin->coinClicked(item)
+        })
+
+        recyclerview.apply {
+            setHasFixedSize(true)
+            adapter = viewAdapter
+
+        }
     }
 
     class CoinAdapter : BaseAdapter {

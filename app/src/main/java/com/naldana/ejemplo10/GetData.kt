@@ -6,5 +6,5 @@ import java.util.*
 interface GetData {
 
     @GET ("prices?key=5a15fd67")
-    fun getData() :Observable<List<RetroCrypto>>
+    fun getData() :Observable<List<Coin>>
 }
