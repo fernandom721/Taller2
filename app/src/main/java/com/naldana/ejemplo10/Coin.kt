@@ -4,16 +4,16 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Coin (
-    val value: String="N/A",
-    val value_us : String="N/A",
-    val year : String="N/A",
-    val review : String="N/A",
-    val isAvaliable : Boolean=false,
-    val img : String="N/A",
+    val value: Int ="N/A",
+    val value_us: String="N/A",
+    val year: String="N/A",
+    val review: String="N/A",
+    val isAvaliable: Boolean=false,
+    val img: String="N/A",
     val _id: String="N/A",
-    val name : String="N/A",
+    val name: String="N/A",
     val country: String="N/A",
-    val __v : Int=0,
+    val __v: Int=0,
     val imgBanderaPais: String="N/A"
 ): Parcelable {
     constructor(parcel: Parcel) : this(
