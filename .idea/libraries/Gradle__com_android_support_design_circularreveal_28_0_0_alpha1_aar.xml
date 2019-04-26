@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-circularreveal:28.0.0-alpha1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e930f2050cb0368961c09446d900aa8f/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/947f2fb68c582e0ca5291d0ede59a9be/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e930f2050cb0368961c09446d900aa8f/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e930f2050cb0368961c09446d900aa8f/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/947f2fb68c582e0ca5291d0ede59a9be/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/947f2fb68c582e0ca5291d0ede59a9be/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
