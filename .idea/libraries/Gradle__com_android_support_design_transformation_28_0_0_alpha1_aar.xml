@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-transformation:28.0.0-alpha1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2880bfab8789fb2fe2c745f64ceec16d/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2fa4255ea5b6529d40916b4ecf200968/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2880bfab8789fb2fe2c745f64ceec16d/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2880bfab8789fb2fe2c745f64ceec16d/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2fa4255ea5b6529d40916b4ecf200968/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-transformation-28.0.0-alpha1.aar/2fa4255ea5b6529d40916b4ecf200968/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
