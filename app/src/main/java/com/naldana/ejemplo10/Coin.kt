@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Coin (
-    val value: Int ="N/A",
+    val value: String = "N/A",
     val value_us: String="N/A",
     val year: String="N/A",
     val review: String="N/A",

@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.BaseAdapter
+import com.google.gson.Gson
 import com.naldana.ejemplo10.utilities.NetworkUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.grid_coins_layout.view.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.net.URL
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -96,10 +98,41 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    private inner class FetchCoincs(): AsyncTask<String,Void,String>(){
+    fun coinEvent(element:Coin){
+
+    }
+
+    private inner class FetchCoins() : AsyncTask<String,Void, String >(){
         override fun doInBackground(vararg params: String?): String {
-            var url = NetworkUtils().buildUrl()
+           val url : URL = NetworkUtils.buildUrl();
+            try{
+                var response : String = NetworkUtils.getResponseFromHttpUrl(url)
+                var gson : Gson = Gson()
+                var coins : AllCoins = gson.fromJson(response,AllCoins::class.java)
+                for(i in 0 .. (coins.datos.size-1)){
+                    var moneda : Coin = Coin(coins.datos.get(i).value,coins.datos.get(i).value_us,coins.datos.get(i).year,
+                        coins.datos.get(i).review,coins.datos.get(i).isAvaliable,coins.datos.get(i).img,coins.datos.get(i)._id,
+                        coins.datos.get(i).name,coins.datos.get(i).country,coins.datos.get(i).__v,coins.datos.get(i).imgBanderaPais)
+                    listaMonedas.add(moneda)
+                }
+                return response
+            }
+            catch(e: IOException){
+                e.printStackTrace()
+                return ""
+            }
         }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            viewManager = LinearLayoutManager(this@MainActivity)
+            viewAdapter= CoinAdapter(listaMonedas,{element:Coin -> coinEvent(element)})
+            recyclerview.apply { setHasFixedSize(true)
+                        layoutManager= viewManager
+                        adapter=viewAdapter
+            }
+        }
+
 
     }
 

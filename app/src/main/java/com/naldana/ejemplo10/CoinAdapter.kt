@@ -23,7 +23,7 @@ class CoinAdapter(val items: List<Coin> , val clickListener : (Coin) -> Unit) : 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.coin_layout,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.coin_layout,null,false)
 
         return ViewHolder(view)
     }
